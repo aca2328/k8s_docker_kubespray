@@ -1,0 +1,16 @@
+- name: get ip for nodes 
+  hosts: localhost
+  gather_facts: False
+  vars_files:
+    - get_aws_keys.yml
+    - get_aws_vars.yml
+  tasks:
+    - name: get the facts
+      ec2_instance_facts:
+        aws_access_key: "{{ AccessKey }}"
+        aws_secret_key: "{{ SecretKey }}"
+        region: "{{ aws_region }}"
+        filters:
+          "{{ aws_tags }}"
+      register: facts
+    - local_action: shell echo "{{ facts | json_query('instances[*].private_ip_address') }}" | sed -e "s/u//g;s/,//g;s/'//g;s/^.//;s/.$//" > get_aws_facts.output
