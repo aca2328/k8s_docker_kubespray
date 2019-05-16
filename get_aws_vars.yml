@@ -1,2 +1,2 @@
 aws_region: 'xxxxxxx'
-aws_tags: '{"k8s":"ok"}'
+aws_tags: '{"tag:k8s":"ok"}'
