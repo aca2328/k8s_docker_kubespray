@@ -12,7 +12,7 @@ all nodes must have internet acces during install, after install, the cluster ca
 
 # Usage
 1. launch one instance to run kubespray from within the VPC you plan to install the cluster
-2. Install docker, then clone the repository `git clone https://github.com/aca2328/Kubespray_indocker.git` then `cd /kubespay_indocker`
+2. Install docker, then clone the repository `git clone https://github.com/aca2328/k8s_docker_kubespray.git` then `cd k8s_docker_kubespray`
 3. fill `id_rsa_priv` with the ssh key ansible will use to ssh on the K8s nodes
 4. fill `get_aws_keys.yml` and `get_aws_vars.yml` with aws IAM credentials and AWS region info
 5. lauch manually from aws console 4 or more instances in the same subnet, adding tag `k8s` with value `ok`
